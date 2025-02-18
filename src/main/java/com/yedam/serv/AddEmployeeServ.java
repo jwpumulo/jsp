@@ -1,4 +1,4 @@
-package com.yedam;
+package com.yedam.serv;
 
 import java.io.IOException;
 
@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.dao.EmpDAO;
+import com.yedam.vo.Employee;
+
 // init - service - destroy : 서블릿의 생명주기.
-@WebServlet("/addEmp")
+@WebServlet("/addEmp")//경로****************
 public class AddEmployeeServ extends HttpServlet {
 
 	@Override

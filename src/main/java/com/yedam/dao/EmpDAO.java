@@ -1,7 +1,5 @@
-package com.yedam;
+package com.yedam.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,45 +8,34 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpDAO {
-	// Connection객체.
-	Connection getConnect() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";// 오라클DB의 접속정보.
-		String user = "hr";
-		String password = "hr";
-		Connection conn = null;
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection(url, user, password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return conn;
-	}// end of getConnect().
+import com.yedam.vo.Employee;
 
-	// 상세조회
+//Data Access Object
+
+public class EmpDAO extends DAO {
+
+
+	// 상세조회.
 	public Employee selectEmp(int empNo) {
-		String query = "select * from tbl_employees" + "where emp_no = ?";
+		String query = "select * from tbl_employees "//
+				+ "where emp_no = ?";
 		try {
-			PreparedStatement stmt = getConnect().prepareStatement(query);
-			stmt.setInt(1, empNo);
-
-			ResultSet rs = stmt.executeQuery(); // 조회
-			if (rs.next()) {// 조회결과가 한건 있으면..
+			psmt = getConnect().prepareStatement(query);
+			psmt.setInt(1, empNo);
+			rs = psmt.executeQuery(); // 조회.
+			if (rs.next()) { // 조회결과가 한건 있으면...
 				Employee emp = new Employee();
-				emp.setEmpNo(rs.getInt("emp_No")); // 칼럼값
-				emp.setEmpName(rs.getString("emp_Name")); // 칼럼값
-				emp.setTelNo(rs.getString("tel_no")); // 칼럼값
-				emp.setHireDate(rs.getDate("hire_date")); // 칼럼값
+				emp.setEmpNo(rs.getInt("emp_no")); // 칼럼값.
+				emp.setEmpName(rs.getString("emp_name"));
+				emp.setTelNo(rs.getString("tel_no"));
+				emp.setHireDate(rs.getDate("hire_date"));
 				emp.setSalary(rs.getInt("salary"));
-
-				return emp; // 반환
-
+				return emp;// 반환.
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return null; // 조회된 결과 없음(null)
 	}
 
 	// 등록.
