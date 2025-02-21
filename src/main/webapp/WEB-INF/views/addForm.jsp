@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="includes/header.jsp"></jsp:include>
+
 <h3>글등록화면(addForm.jsp)</h3>
 <form action="addBoard.do">
 	<table class="table">
@@ -18,7 +19,8 @@
 		<tr>
 			<th>작성자</th>
 			<td>
-			 <input class="form-control" type="text" name="writer">
+			 <input class="form-control" type="hidden" name="writer" value="${loginId }">
+			 ${loginId }
 			</td>
 		</tr>
 		<tr>
