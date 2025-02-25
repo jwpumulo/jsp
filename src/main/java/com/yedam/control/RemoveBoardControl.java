@@ -12,6 +12,7 @@ public class RemoveBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
 		
 		int boardNo = Integer.parseInt(req.getParameter("board_no"));
@@ -23,6 +24,18 @@ public class RemoveBoardControl implements Control {
 		} else {
 			
 		}
+=======
+		// ?bno=25
+		String bno = req.getParameter("bno");
+		
+		BoardDAO bdao = new BoardDAO();
+		if(bdao.deleteBoard(Integer.parseInt(bno))) {
+			resp.sendRedirect("boardList.do");
+		} else {
+			System.out.println("처리실패.");
+		}
+
+>>>>>>> branch 'master' of https://github.com/jwpumulo/jsp.git
 	}
 
 }

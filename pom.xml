@@ -22,6 +22,7 @@
 		</plugins>
 	</build>
 	<dependencies>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc10</artifactId>
@@ -67,6 +68,31 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.12.1</version>
+=======
+		<!--라이브러리.-->
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-spec</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>taglibs-standard-impl</artifactId>
+			<version>1.2.5</version>
+>>>>>>> branch 'master' of https://github.com/jwpumulo/jsp.git
 		</dependency>
 	</dependencies>
 </project>

@@ -8,10 +8,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Student {
+<<<<<<< HEAD
 
 	private String studentNo;
 	private String studentName;
 	private String phone;
 	private String address;
 
+=======
+	private String studentNo;
+	private String studentName;
+	private String phone;
+	private String address;
+	
+>>>>>>> branch 'master' of https://github.com/jwpumulo/jsp.git
 }
